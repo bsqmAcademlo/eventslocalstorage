@@ -1,0 +1,79 @@
+:root {
+	color-scheme: light dark;
+	color: rgba(255, 255, 255, 0.87);
+	background-color: #242424;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
+	user-select: none;
+}
+
+.container {
+	max-width: 1024px;
+	margin: 0 auto;
+	padding: 1rem;
+
+	min-height: 100vh;
+	display: grid;
+	place-items: center;
+	text-align: center;
+}
+
+.boxes,
+.boxes__selected {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1rem;
+	min-height: 100px;
+}
+
+.boxes__selected .box {
+	animation: animationBoxSelected 0.5s forwards;
+}
+
+@keyframes animationBoxSelected {
+	from {
+		transform: scale(0);
+	}
+
+	to {
+		transform: scale(1);
+	}
+}
+
+.box {
+	border-radius: 1rem;
+	width: 100px;
+	height: 100px;
+	display: grid;
+	place-items: center;
+	cursor: pointer;
+	flex-grow: 1;
+}
+
+.box__text {
+	font-size: 0.8rem;
+	opacity: 0;
+	padding: 0.5rem;
+	border-radius: 0.5rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	transition: opacity 0.5s;
+}
+
+.box__text--add {
+	background-color: lightgreen;
+}
+
+.box__text--remove {
+	background-color: lightcoral;
+}
+
+.box:hover .box__text {
+	opacity: 1;
+}
